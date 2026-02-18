@@ -1,0 +1,156 @@
+// !$*UTF8*$!
+{
+	archiveVersion = 1;
+	classes = {
+	};
+	objectVersion = 56;
+	objects = {
+
+/* Begin PBXBuildFile section */
+	A001 /* ClaudeUsageBarApp.swift in Sources */ = {isa = PBXBuildFile; fileRef = A101 /* ClaudeUsageBarApp.swift */; };
+	A002 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = A102 /* AppDelegate.swift */; };
+	A003 /* UsageModels.swift in Sources */ = {isa = PBXBuildFile; fileRef = A103 /* UsageModels.swift */; };
+	A004 /* AppSettings.swift in Sources */ = {isa = PBXBuildFile; fileRef = A104 /* AppSettings.swift */; };
+	A005 /* UsageProvider.swift in Sources */ = {isa = PBXBuildFile; fileRef = A105 /* UsageProvider.swift */; };
+	A006 /* StatusEvaluator.swift in Sources */ = {isa = PBXBuildFile; fileRef = A106 /* StatusEvaluator.swift */; };
+	A007 /* BackoffScheduler.swift in Sources */ = {isa = PBXBuildFile; fileRef = A107 /* BackoffScheduler.swift */; };
+	A008 /* StatusTextParser.swift in Sources */ = {isa = PBXBuildFile; fileRef = A108 /* StatusTextParser.swift */; };
+	A009 /* AppStorage.swift in Sources */ = {isa = PBXBuildFile; fileRef = A109 /* AppStorage.swift */; };
+	A010 /* ProviderManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = A110 /* ProviderManager.swift */; };
+	A011 /* ManualEntryProvider.swift in Sources */ = {isa = PBXBuildFile; fileRef = A111 /* ManualEntryProvider.swift */; };
+	A012 /* PasteStatusProvider.swift in Sources */ = {isa = PBXBuildFile; fileRef = A112 /* PasteStatusProvider.swift */; };
+	A013 /* DeepLinkProvider.swift in Sources */ = {isa = PBXBuildFile; fileRef = A113 /* DeepLinkProvider.swift */; };
+	A014 /* PopoverContentView.swift in Sources */ = {isa = PBXBuildFile; fileRef = A114 /* PopoverContentView.swift */; };
+	A015 /* UsageLogicTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = A115 /* UsageLogicTests.swift */; };
+/* End PBXBuildFile section */
+
+/* Begin PBXFileReference section */
+	A100 /* ClaudeUsageBar.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; path = ClaudeUsageBar.app; sourceTree = BUILT_PRODUCTS_DIR; };
+	A101 /* ClaudeUsageBarApp.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ClaudeUsageBarApp.swift; sourceTree = "<group>"; };
+	A102 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
+	A103 /* UsageModels.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UsageModels.swift; sourceTree = "<group>"; };
+	A104 /* AppSettings.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppSettings.swift; sourceTree = "<group>"; };
+	A105 /* UsageProvider.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UsageProvider.swift; sourceTree = "<group>"; };
+	A106 /* StatusEvaluator.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StatusEvaluator.swift; sourceTree = "<group>"; };
+	A107 /* BackoffScheduler.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BackoffScheduler.swift; sourceTree = "<group>"; };
+	A108 /* StatusTextParser.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StatusTextParser.swift; sourceTree = "<group>"; };
+	A109 /* AppStorage.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppStorage.swift; sourceTree = "<group>"; };
+	A110 /* ProviderManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProviderManager.swift; sourceTree = "<group>"; };
+	A111 /* ManualEntryProvider.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ManualEntryProvider.swift; sourceTree = "<group>"; };
+	A112 /* PasteStatusProvider.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PasteStatusProvider.swift; sourceTree = "<group>"; };
+	A113 /* DeepLinkProvider.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DeepLinkProvider.swift; sourceTree = "<group>"; };
+	A114 /* PopoverContentView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PopoverContentView.swift; sourceTree = "<group>"; };
+	A115 /* UsageLogicTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UsageLogicTests.swift; sourceTree = "<group>"; };
+	A116 /* ClaudeUsageBarTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; path = ClaudeUsageBarTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
+/* End PBXFileReference section */
+
+/* Begin PBXFrameworksBuildPhase section */
+	A200 = {isa = PBXFrameworksBuildPhase; buildActionMask = 2147483647; files = (); runOnlyForDeploymentPostprocessing = 0; };
+	A201 = {isa = PBXFrameworksBuildPhase; buildActionMask = 2147483647; files = (); runOnlyForDeploymentPostprocessing = 0; };
+/* End PBXFrameworksBuildPhase section */
+
+/* Begin PBXGroup section */
+	A300 = {
+		isa = PBXGroup;
+		children = (
+			A301,
+			A302,
+			A303,
+			A304,
+			A305,
+			A306,
+			A307,
+			A400,
+		);
+		sourceTree = "<group>";
+	};
+	A301 = {isa = PBXGroup; path = App; sourceTree = "<group>"; children = (A101, A102); };
+	A302 = {isa = PBXGroup; path = Models; sourceTree = "<group>"; children = (A103, A104); };
+	A303 = {isa = PBXGroup; path = Utilities; sourceTree = "<group>"; children = (A105, A106, A107, A108); };
+	A304 = {isa = PBXGroup; path = Managers; sourceTree = "<group>"; children = (A109, A110); };
+	A305 = {isa = PBXGroup; path = Providers; sourceTree = "<group>"; children = (A111, A112, A113); };
+	A306 = {isa = PBXGroup; path = Views; sourceTree = "<group>"; children = (A114); };
+	A307 = {isa = PBXGroup; path = ClaudeUsageBarTests; sourceTree = "<group>"; children = (A115); };
+	A400 = {isa = PBXGroup; name = Products; sourceTree = "<group>"; children = (A100, A116); };
+/* End PBXGroup section */
+
+/* Begin PBXNativeTarget section */
+	A500 = {
+		isa = PBXNativeTarget;
+		buildConfigurationList = A800;
+		buildPhases = (A600, A200, A601);
+		buildRules = ();
+		dependencies = ();
+		name = ClaudeUsageBar;
+		productName = ClaudeUsageBar;
+		productReference = A100;
+		productType = "com.apple.product-type.application";
+	};
+	A501 = {
+		isa = PBXNativeTarget;
+		buildConfigurationList = A801;
+		buildPhases = (A602, A201, A603);
+		buildRules = ();
+		dependencies = (A700);
+		name = ClaudeUsageBarTests;
+		productName = ClaudeUsageBarTests;
+		productReference = A116;
+		productType = "com.apple.product-type.bundle.unit-test";
+	};
+/* End PBXNativeTarget section */
+
+/* Begin PBXProject section */
+	A900 = {
+		isa = PBXProject;
+		attributes = {
+			LastSwiftUpdateCheck = 1500;
+			LastUpgradeCheck = 1500;
+		};
+		buildConfigurationList = A802;
+		compatibilityVersion = "Xcode 14.0";
+		developmentRegion = en;
+		hasScannedForEncodings = 0;
+		knownRegions = (en, Base);
+		mainGroup = A300;
+		productRefGroup = A400;
+		projectDirPath = "";
+		projectRoot = "";
+		targets = (A500, A501);
+	};
+/* End PBXProject section */
+
+/* Begin PBXResourcesBuildPhase section */
+	A600 = {isa = PBXResourcesBuildPhase; buildActionMask = 2147483647; files = (); runOnlyForDeploymentPostprocessing = 0; };
+	A602 = {isa = PBXResourcesBuildPhase; buildActionMask = 2147483647; files = (); runOnlyForDeploymentPostprocessing = 0; };
+/* End PBXResourcesBuildPhase section */
+
+/* Begin PBXSourcesBuildPhase section */
+	A601 = {isa = PBXSourcesBuildPhase; buildActionMask = 2147483647; files = (A001,A002,A003,A004,A005,A006,A007,A008,A009,A010,A011,A012,A013,A014); runOnlyForDeploymentPostprocessing = 0; };
+	A603 = {isa = PBXSourcesBuildPhase; buildActionMask = 2147483647; files = (A015); runOnlyForDeploymentPostprocessing = 0; };
+/* End PBXSourcesBuildPhase section */
+
+/* Begin PBXTargetDependency section */
+	A700 = {isa = PBXTargetDependency; target = A500; targetProxy = A701; };
+/* End PBXTargetDependency section */
+
+/* Begin PBXContainerItemProxy section */
+	A701 = {isa = PBXContainerItemProxy; containerPortal = A900; proxyType = 1; remoteGlobalIDString = A500; remoteInfo = ClaudeUsageBar; };
+/* End PBXContainerItemProxy section */
+
+/* Begin XCBuildConfiguration section */
+	A810 = {isa = XCBuildConfiguration; buildSettings = { CODE_SIGN_STYLE = Automatic; CURRENT_PROJECT_VERSION = 1; GENERATE_INFOPLIST_FILE = YES; INFOPLIST_KEY_LSUIElement = YES; LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/../Frameworks"; MACOSX_DEPLOYMENT_TARGET = 13.0; MARKETING_VERSION = 1.0; PRODUCT_BUNDLE_IDENTIFIER = com.example.ClaudeUsageBar; PRODUCT_NAME = "$(TARGET_NAME)"; SWIFT_VERSION = 5.9; }; name = Debug; };
+	A811 = {isa = XCBuildConfiguration; buildSettings = { CODE_SIGN_STYLE = Automatic; CURRENT_PROJECT_VERSION = 1; GENERATE_INFOPLIST_FILE = YES; INFOPLIST_KEY_LSUIElement = YES; LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/../Frameworks"; MACOSX_DEPLOYMENT_TARGET = 13.0; MARKETING_VERSION = 1.0; PRODUCT_BUNDLE_IDENTIFIER = com.example.ClaudeUsageBar; PRODUCT_NAME = "$(TARGET_NAME)"; SWIFT_VERSION = 5.9; }; name = Release; };
+	A812 = {isa = XCBuildConfiguration; buildSettings = { BUNDLE_LOADER = "$(TEST_HOST)"; CODE_SIGN_STYLE = Automatic; GENERATE_INFOPLIST_FILE = YES; MACOSX_DEPLOYMENT_TARGET = 13.0; PRODUCT_BUNDLE_IDENTIFIER = com.example.ClaudeUsageBarTests; PRODUCT_NAME = "$(TARGET_NAME)"; SWIFT_VERSION = 5.9; TEST_HOST = "$(BUILT_PRODUCTS_DIR)/ClaudeUsageBar.app/Contents/MacOS/ClaudeUsageBar"; }; name = Debug; };
+	A813 = {isa = XCBuildConfiguration; buildSettings = { BUNDLE_LOADER = "$(TEST_HOST)"; CODE_SIGN_STYLE = Automatic; GENERATE_INFOPLIST_FILE = YES; MACOSX_DEPLOYMENT_TARGET = 13.0; PRODUCT_BUNDLE_IDENTIFIER = com.example.ClaudeUsageBarTests; PRODUCT_NAME = "$(TARGET_NAME)"; SWIFT_VERSION = 5.9; TEST_HOST = "$(BUILT_PRODUCTS_DIR)/ClaudeUsageBar.app/Contents/MacOS/ClaudeUsageBar"; }; name = Release; };
+	A814 = {isa = XCBuildConfiguration; buildSettings = { }; name = Debug; };
+	A815 = {isa = XCBuildConfiguration; buildSettings = { }; name = Release; };
+/* End XCBuildConfiguration section */
+
+/* Begin XCConfigurationList section */
+	A800 = {isa = XCConfigurationList; buildConfigurations = (A810, A811); defaultConfigurationIsVisible = 0; defaultConfigurationName = Debug; };
+	A801 = {isa = XCConfigurationList; buildConfigurations = (A812, A813); defaultConfigurationIsVisible = 0; defaultConfigurationName = Debug; };
+	A802 = {isa = XCConfigurationList; buildConfigurations = (A814, A815); defaultConfigurationIsVisible = 0; defaultConfigurationName = Debug; };
+/* End XCConfigurationList section */
+	};
+	rootObject = A900;
+}

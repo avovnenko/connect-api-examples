@@ -1,18 +1,73 @@
-# Square Connect API Examples
+# ClaudeUsageBar
 
-**IMPORTANT:** On 16 February 2016, changes were made to the representation of a
-Square merchant in the Connect API. These changes slightly altered the behavior of the
-Connect API for applications created after 16 February. The samples in this repository
-now reflect this altered behavior. If you created your Connect API application _before_
-16 February, samples that reflect your application's behavior are available in the
-`v1` directory.
+Lightweight native macOS menu bar app that tracks Claude subscription usage with **safe, user-controlled providers**:
 
-On 23 May 2017, We made a significant improvement to our SDK to expand their
-functionality and make them even easier to use. Unfortunately, some of the
-changes are not backward compatible.  The samples in this repository now contain
-three different folders `v1`, `v2.0`, and `v2.1`.  You can read more about the
-new SDK in our [blog post](https://medium.com/square-corner-blog/announcing-our-new-versions-of-our-client-sdks-1336d26e8099)
+- **Manual Entry** (local values)
+- **Paste from Claude Code `/status`** (defensive parser)
+- **Deep Link** (opens Claude usage settings page)
 
-This repository contains simple code samples that demonstrate use of the Square Connect API. Complete documentation for the API is available at [connect.squareup.com](https://connect.squareup.com).
+No scraping and no undocumented API calls are used.
 
-If you have questions about Square Connect API features or implementation, please see the [FAQ](https://docs.connect.squareup.com/articles/faq/).
+## Features
+
+- Top-right menu bar indicator with status severity color (green/yellow/red/gray)
+- Popover with:
+  - Rolling 5-hour window
+  - Weekly window
+  - Provider-specific input UI
+  - Configurable thresholds and refresh interval
+- Exponential backoff for refresh failures
+- Snapshot caching and meaningful-change updates to avoid churn
+- Local persistence through `UserDefaults`
+
+## Project structure
+
+- `ClaudeUsageBar.xcodeproj` — Xcode project
+- `ClaudeUsageBar/` — App source
+  - `Models/` — normalized data models + settings
+  - `Providers/` — provider implementations
+  - `Managers/` — persistence and provider orchestration
+  - `Utilities/` — parser, backoff, severity logic
+  - `Views/` — popover UI
+  - `App/` — app entry + `NSStatusItem` integration
+- `ClaudeUsageBarTests/` — unit tests for logic/parsing
+
+## Build & run
+
+1. Open `ClaudeUsageBar.xcodeproj` in Xcode 15+.
+2. Select the `ClaudeUsageBar` target.
+3. Build and run.
+4. The app runs as a menu bar utility (`LSUIElement = YES`), so no dock icon appears.
+
+## Using providers
+
+### Manual Entry
+
+Enter usage values for 5-hour + weekly windows and save.
+
+### Paste from Claude Code `/status`
+
+1. Open Claude Code.
+2. Run `/status`.
+3. Copy the displayed status output.
+4. Paste into the app and click **Parse & Save**.
+
+The parser is defensive and ignores unknown lines while reporting warnings.
+
+### Deep Link
+
+Use **Open Claude Usage Page** to launch Claude settings usage page in your default browser.
+
+## Notes on storage and privacy
+
+- Settings and manual/pasted values are stored locally in `UserDefaults`.
+- Session cookies are **not** stored.
+- If sensitive credentials are ever needed in a future provider, Keychain should be used.
+
+## Tests
+
+Unit tests cover:
+
+1. Threshold → severity mapping
+2. Backoff schedule progression and reset
+3. Paste parser behavior with known and unknown lines
