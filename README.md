@@ -1,18 +1,64 @@
-# Square Connect API Examples
+# Claude Usage Menu Bar (macOS)
 
-**IMPORTANT:** On 16 February 2016, changes were made to the representation of a
-Square merchant in the Connect API. These changes slightly altered the behavior of the
-Connect API for applications created after 16 February. The samples in this repository
-now reflect this altered behavior. If you created your Connect API application _before_
-16 February, samples that reflect your application's behavior are available in the
-`v1` directory.
+A lightweight native macOS menu bar app (SwiftUI + `NSStatusItem`) that tracks Claude subscription usage using **safe local providers** only:
 
-On 23 May 2017, We made a significant improvement to our SDK to expand their
-functionality and make them even easier to use. Unfortunately, some of the
-changes are not backward compatible.  The samples in this repository now contain
-three different folders `v1`, `v2.0`, and `v2.1`.  You can read more about the
-new SDK in our [blog post](https://medium.com/square-corner-blog/announcing-our-new-versions-of-our-client-sdks-1336d26e8099)
+1. **Deep Link provider**: opens Claude usage page in your browser.
+2. **Manual Entry provider**: local values for 5-hour and weekly usage windows.
+3. **Paste-from-Claude-Code provider**: paste `/status` output and parse defensively.
 
-This repository contains simple code samples that demonstrate use of the Square Connect API. Complete documentation for the API is available at [connect.squareup.com](https://connect.squareup.com).
+> This app does **not** scrape claude.ai and does **not** use undocumented endpoints.
 
-If you have questions about Square Connect API features or implementation, please see the [FAQ](https://docs.connect.squareup.com/articles/faq/).
+## Project Layout
+
+- `ClaudeUsageMenuBar/ClaudeUsageMenuBar.xcodeproj` — Xcode project.
+- `ClaudeUsageMenuBar/App` — app entry, app delegate, app state.
+- `ClaudeUsageMenuBar/Sources/Core` — models, provider protocol, manager, persistence.
+- `ClaudeUsageMenuBar/Sources/Providers` — manual/paste/deep-link providers.
+- `ClaudeUsageMenuBar/Sources/UI` — SwiftUI popover.
+- `ClaudeUsageMenuBar/Tests/ClaudeUsageMenuBarTests` — unit tests.
+
+## Build & Run
+
+1. Open `ClaudeUsageMenuBar/ClaudeUsageMenuBar.xcodeproj` in Xcode 16+.
+2. Select the `ClaudeUsageMenuBar` scheme.
+3. Run on macOS.
+4. The app appears in the top-right menu bar.
+
+## Usage
+
+### Provider selection
+Use the provider picker in the popover header:
+- **Manual Entry**: edit values and click **Save**.
+- **Paste from Claude Code**: paste text, click **Parse & Save**.
+- **Deep Link**: click **Open Claude Usage Page**.
+
+### Getting `/status` text from Claude Code
+In Claude Code, run `/status`, then copy the output and paste it into this app’s Paste provider input box. The parser is defensive and ignores unknown lines while reporting warnings.
+
+## Behaviors
+
+- Menu bar indicator supports color states: green/yellow/red/gray.
+- Popover shows:
+  - rolling 5-hour window
+  - weekly window
+  - thresholds
+  - refresh interval
+  - show-percent toggle
+- Provider manager:
+  - polls only providers that support auto refresh
+  - default refresh interval: 60s (configurable)
+  - exponential backoff on failures: 1m → 2m → 5m → 10m
+  - caches last good snapshot and updates UI only on meaningful changes
+
+## Storage & Security
+
+- Settings and local usage values are persisted in `UserDefaults`.
+- Sensitive material should use Keychain design for future enhancements.
+- Session cookies are not collected or stored.
+
+## Tests
+
+Included unit tests:
+1. threshold → indicator state mapping
+2. backoff schedule behavior
+3. paste parser known/unknown line behavior
